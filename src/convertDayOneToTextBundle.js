@@ -1,6 +1,6 @@
 import fs from "fs";
 import parseDayOne2JSONExport from "./dayone/parseJournal.js";
-import buildTextBundleZip from "./textbundle/buildTextPackZip.js";
+import buildTextPackZip from "./textbundle/buildTextPackZip.js";
 import writeTextBundleFiles from "./textbundle/writeTextBundle.js";
 import filenamify from "filenamify";
 import utimes from "utimes";
@@ -80,7 +80,7 @@ const writeTextPackZip = async (outputPath, entry, logs) => {
   }.textpack`;
 
   try {
-    const zip = buildTextBundleZip(entry);
+    const zip = buildTextPackZip(entry);
     const data = await zip.generateAsync({ type: "nodebuffer" });
     fs.writeFileSync(outputFilePath, data);
     logs.converter.numberOfTextBundlesWritten += 1;
