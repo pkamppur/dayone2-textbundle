@@ -11,7 +11,8 @@ Sadly DayOne2 does not support TextBundle out of the box, this project solves th
 ## Features
 
 - Reads [DayOne2](https://dayoneapp.com/) journal in JSON format
-- Converts into [TextBundle](http://textbundle.org/) `.textpack` ZIP files
+- Converts into [TextBundle](http://textbundle.org/) `.textbundle` files (`.textpack` ZIP files also supported, but needs changing parameters in code)
+- Supports photo and PDF attachments
 
 ## How To
 
