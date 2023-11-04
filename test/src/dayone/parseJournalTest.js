@@ -46,6 +46,24 @@ describe("parseJournal", () => {
             title: "Third entry with double escapes",
             uuid: "6BD0AE9E21C447A6BC504A63899BC544",
           },
+          {
+            text: 'Fourth Test Journal Entry\nThis entry contains a PDF file.\n\n[0E4BD5DF4D8A4835B3BA3A53F31CE1AD.pdf](assets/2f1c651de5d167db3d62dc260925fa9c.pdf)<!-- {"embed":"true", "preview":"true"} -->\n\nContent continues here after the PDF.',
+            title: "Fourth Test Journal Entry",
+            createdAt: "2023-11-04T18:45:27Z",
+            modifiedAt: "2023-11-04T18:45:44Z",
+            uuid: "DFE9217ECAD140A49006530651446773",
+            attachments: [
+              {
+                uuid: "0E4BD5DF4D8A4835B3BA3A53F31CE1AD",
+                filename: "2f1c651de5d167db3d62dc260925fa9c.pdf",
+                relativeSourcePath: "pdfs/2f1c651de5d167db3d62dc260925fa9c.pdf",
+                path:
+                  path.normalize(
+                    __dirname + "/../../assets/DayOne2JSONExport/pdfs/"
+                  ) + "2f1c651de5d167db3d62dc260925fa9c.pdf",
+              },
+            ],
+          },
         ],
         entriesWithErrors: [
           {
