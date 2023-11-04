@@ -214,10 +214,13 @@ describe("parseDayOne2JSONExportEntry", () => {
           attachments: [
             {
               uuid: "D102C64516364C2195B19636EAC9FE9F",
+              relativeSourcePath: "photos/dc6cb29b2f32ce896ebf417608885889.png",
               filename: "dc6cb29b2f32ce896ebf417608885889.png",
             },
             {
               uuid: "D102C64516364C2195B19636EAC9FE99",
+              relativeSourcePath:
+                "photos/dc6cb29b2f32ce896ebf417608885899.jpeg",
               filename: "dc6cb29b2f32ce896ebf417608885899.jpeg",
             },
           ],
@@ -234,6 +237,52 @@ describe("parseDayOne2JSONExportEntry", () => {
           uuid: "65A6F350C04E496DB775971441E41FBA",
           title: "Foo",
           text: "# Foo\n![](http://example.org/foo.png)\n![bar](http://example.org/bar.png)\n",
+        }
+      );
+    });
+  });
+
+  describe("with pdf", () => {
+    it("parses correctly", () => {
+      assert.deepEqual(parseDayOne2JSONExportEntry(examplEntries.withPdf), {
+        createdAt: "2023-11-01T07:31:20Z",
+        modifiedAt: "2023-11-01T07:32:30Z",
+        attachments: [
+          {
+            filename: "4b5997d3e4d8ed8f581395ae365d2f71.pdf",
+            relativeSourcePath: "pdfs/4b5997d3e4d8ed8f581395ae365d2f71.pdf",
+            uuid: "D229A6574C0340E68AD3BB65F950A77C",
+          },
+        ],
+        text: 'TYT-tulosraportti 2023\n\n[D229A6574C0340E68AD3BB65F950A77C.pdf](assets/4b5997d3e4d8ed8f581395ae365d2f71.pdf)<!-- {"embed":"true", "preview":"true"} -->',
+        title: "TYT\\-tulosraportti 2023",
+        uuid: "AEF9A0A34B8A443AA9A83F3713C94244",
+      });
+    });
+  });
+
+  describe("with pdfs and images", () => {
+    it("parses correctly", () => {
+      assert.deepEqual(
+        parseDayOne2JSONExportEntry(examplEntries.withPdfAndImages),
+        {
+          createdAt: "2023-11-01T07:31:20Z",
+          modifiedAt: "2023-11-01T07:32:30Z",
+          attachments: [
+            {
+              filename: "88ecaafd35b44cc45fa804fb247be012.png",
+              relativeSourcePath: "photos/88ecaafd35b44cc45fa804fb247be012.png",
+              uuid: "37A9D40021444291B91102841325B5CF",
+            },
+            {
+              filename: "4b5997d3e4d8ed8f581395ae365d2f71.pdf",
+              relativeSourcePath: "pdfs/4b5997d3e4d8ed8f581395ae365d2f71.pdf",
+              uuid: "D229A6574C0340E68AD3BB65F950A77C",
+            },
+          ],
+          text: 'TYT-tulosraportti 2023\n\n[D229A6574C0340E68AD3BB65F950A77C.pdf](assets/4b5997d3e4d8ed8f581395ae365d2f71.pdf)<!-- {"embed":"true", "preview":"true"} -->\n\n![](attachment:37A9D40021444291B91102841325B5CF)',
+          title: "TYT\\-tulosraportti 2023",
+          uuid: "AEF9A0A34B8A443AA9A83F3713C94244",
         }
       );
     });
@@ -326,5 +375,89 @@ const examplEntries = {
   externalImages: {
     text: "# Foo\n![](http://example.org/foo.png)\n![bar](http://example.org/bar.png)\n",
     uuid: "65A6F350C04E496DB775971441E41FBA",
+  },
+  withPdf: {
+    pdfAttachments: [
+      {
+        favorite: false,
+        fileSize: 3572578,
+        orderInEntry: 0,
+        width: 0,
+        type: "pdf",
+        identifier: "D229A6574C0340E68AD3BB65F950A77C",
+        height: 0,
+        creationDevice: "Petteri - iPhone 14 Pro",
+        duration: 0,
+        md5: "4b5997d3e4d8ed8f581395ae365d2f71",
+      },
+    ],
+    creationDeviceModel: "iPhone15,2",
+    isPinned: false,
+    duration: 0,
+    richText:
+      '{"meta":{"version":1,"small-lines-removed":true,"created":{"platform":"com.bloombuilt.dayone-ios","version":2444}},"contents":[{"attributes":{"line":{"header":1,"identifier":"1F9CC0E4-5FE6-41B7-BBC9-FC46D584DFE6"}},"text":"TYT-tulosraportti 2023"},{"embeddedObjects":[{"type":"pdfAttachment","identifier":"D229A6574C0340E68AD3BB65F950A77C"}]}]}',
+    text: "TYT\\-tulosraportti 2023\n\n![](dayone-moment:/pdfAttachment/D229A6574C0340E68AD3BB65F950A77C)",
+    modifiedDate: "2023-11-01T07:32:30Z",
+    editingTime: 15.114930033683777,
+    uuid: "AEF9A0A34B8A443AA9A83F3713C94244",
+    isAllDay: false,
+    timeZone: "Europe/Helsinki",
+    creationDate: "2023-11-01T07:31:20Z",
+    creationOSName: "iOS",
+    creationDevice: "Petteri - iPhone 14 Pro",
+    starred: false,
+    creationDeviceType: "iPhone",
+    creationOSVersion: "16.7.1",
+  },
+  withPdfAndImages: {
+    pdfAttachments: [
+      {
+        favorite: false,
+        fileSize: 3572578,
+        orderInEntry: 0,
+        width: 0,
+        type: "pdf",
+        identifier: "D229A6574C0340E68AD3BB65F950A77C",
+        height: 0,
+        creationDevice: "Petteri - iPhone 14 Pro",
+        duration: 0,
+        md5: "4b5997d3e4d8ed8f581395ae365d2f71",
+      },
+    ],
+    photos: [
+      {
+        fileSize: 1387866,
+        orderInEntry: 5,
+        creationDevice: "Petteri’s iPad Pro M2",
+        duration: 0,
+        favorite: false,
+        type: "png",
+        filename: "IMG_2792",
+        identifier: "37A9D40021444291B91102841325B5CF",
+        date: "2023-10-31T16:00:23Z",
+        exposureBiasValue: 0,
+        height: 1179,
+        width: 2556,
+        md5: "88ecaafd35b44cc45fa804fb247be012",
+        isSketch: false,
+      },
+    ],
+    creationDeviceModel: "iPhone15,2",
+    isPinned: false,
+    duration: 0,
+    richText:
+      '{"meta":{"version":1,"small-lines-removed":true,"created":{"platform":"com.bloombuilt.dayone-ios","version":2444}},"contents":[{"attributes":{"line":{"header":1,"identifier":"1F9CC0E4-5FE6-41B7-BBC9-FC46D584DFE6"}},"text":"TYT-tulosraportti 2023"},{"embeddedObjects":[{"type":"pdfAttachment","identifier":"D229A6574C0340E68AD3BB65F950A77C"}]}]}',
+    text: "TYT\\-tulosraportti 2023\n\n![](dayone-moment:/pdfAttachment/D229A6574C0340E68AD3BB65F950A77C)\n\n![](dayone-moment://37A9D40021444291B91102841325B5CF)",
+    modifiedDate: "2023-11-01T07:32:30Z",
+    editingTime: 15.114930033683777,
+    uuid: "AEF9A0A34B8A443AA9A83F3713C94244",
+    isAllDay: false,
+    timeZone: "Europe/Helsinki",
+    creationDate: "2023-11-01T07:31:20Z",
+    creationOSName: "iOS",
+    creationDevice: "Petteri - iPhone 14 Pro",
+    starred: false,
+    creationDeviceType: "iPhone",
+    creationOSVersion: "16.7.1",
   },
 };

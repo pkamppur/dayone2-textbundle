@@ -23,6 +23,8 @@ describe("parseDayOne2JSONExport", () => {
               {
                 uuid: "D3456FD591A34C098719F1A0E6C46829",
                 filename: "cf80411fda6ba991b6110b2365fb8286.jpeg",
+                relativeSourcePath:
+                  "photos/cf80411fda6ba991b6110b2365fb8286.jpeg",
                 path:
                   path.normalize(
                     __dirname + "/../assets/DayOne2JSONExport/photos/"
