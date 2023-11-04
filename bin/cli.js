@@ -11,7 +11,9 @@ if (!inputPath || !outputPath) {
   console.log(`${process.argv0} <dayone2-export-json-file> <target-dir>`);
   process.exit(1);
 } else {
-  await convertDayOne2JSONExportIntoTextBundleZips(inputPath, outputPath)
+  await convertDayOne2JSONExportIntoTextBundleZips(inputPath, outputPath, {
+    format: "textbundle",
+  })
     .then((logs) => {
       logs.parser.entriesErrors.forEach((e) => {
         console.log(`[PARSER] Skipping entry: ${e}`);
