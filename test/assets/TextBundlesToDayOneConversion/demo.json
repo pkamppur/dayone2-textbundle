@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "version": "1.0"
+  },
+  "entries": [
+    {
+      "text": "Fourth Test Journal Entry\nThis entry contains a PDF file.\n\n![](dayone-moment:/pdfAttachment/0E4BD5DF4D8A4835B3BA3A53F31CE1AD)\n\nContent continues here after the PDF.",
+      "pdfAttachments": [
+        {
+          "type": "pdf",
+          "identifier": "0E4BD5DF4D8A4835B3BA3A53F31CE1AD",
+          "md5": "2f1c651de5d167db3d62dc260925fa9c",
+          "pdfName": "0E4BD5DF4D8A4835B3BA3A53F31CE1AD"
+        }
+      ],
+      "modifiedDate": "2023-11-04T18:45:44Z",
+      "creationDate": "2023-11-04T18:45:27Z"
+    },
+    {
+      "text": "# Initial entry\n\nsome text\n\n![](dayone-moment://cf80411fda6ba991b6110b2365fb8286)",
+      "photos": [
+        {
+          "type": "jpeg",
+          "identifier": "cf80411fda6ba991b6110b2365fb8286",
+          "md5": "cf80411fda6ba991b6110b2365fb8286",
+          "orderInEntry": 0
+        }
+      ],
+      "modifiedDate": "2019-03-26T21:48:44Z",
+      "creationDate": "2019-03-18T13:04:56Z"
+    },
+    {
+      "text": "# Second entry\n\nsome text",
+      "modifiedDate": "2010-03-26T21:48:55Z",
+      "creationDate": "2010-02-26T21:44:20Z"
+    },
+    {
+      "text": "# Third entry with double escapes\n\ndouble escape a/b dot. single escape slash/",
+      "modifiedDate": "2010-03-27T21:58:55Z",
+      "creationDate": "2010-02-27T21:14:20Z"
+    }
+  ]
+}
