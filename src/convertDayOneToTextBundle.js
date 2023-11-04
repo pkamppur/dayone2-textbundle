@@ -41,15 +41,17 @@ export default async (inputPath, outputPath, options) => {
       outputEntry = await writeTextPackZip(outputPath, entry, logs);
     }
 
-    try {
-      const createdAt = new Date(entry.createdAt).getTime() || undefined;
-      const modifiedAt = new Date(entry.modifiedAt).getTime() || undefined;
-      const accessedAt = undefined;
-      await setUtimes(outputEntry, createdAt, modifiedAt, accessedAt);
-    } catch (error) {
-      logs.converter.filesErrors.push(
-        new Error(`Failed to set utimes on ${outputEntry} ${error}`)
-      );
+    if (outputEntry) {
+      try {
+        const createdAt = new Date(entry.createdAt).getTime() || undefined;
+        const modifiedAt = new Date(entry.modifiedAt).getTime() || undefined;
+        const accessedAt = undefined;
+        await setUtimes(outputEntry, createdAt, modifiedAt, accessedAt);
+      } catch (error) {
+        logs.converter.filesErrors.push(
+          new Error(`Failed to set utimes on ${outputEntry} ${error}`)
+        );
+      }
     }
   }
   return logs;
@@ -71,6 +73,7 @@ const writeTextBundle = async (outputPath, entry, logs) => {
     logs.converter.filesErrors.push(
       new Error(`Failed to write TextBundle ${outputDirPath} ${error}`)
     );
+    return null;
   }
 };
 
