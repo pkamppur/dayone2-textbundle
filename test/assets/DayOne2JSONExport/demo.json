@@ -79,6 +79,37 @@
       "creationOSVersion": "10.14.3",
       "creationDeviceType": "MacBook Pro",
       "creationDate": "2011-03-26T21:44:20Z"
+    },
+    {
+      "starred": false,
+      "creationDeviceModel": "MacBookPro15,1",
+      "timeZone": "Europe/Helsinki",
+      "duration": 0,
+      "pdfAttachments": [
+        {
+          "favorite": false,
+          "fileSize": 18287,
+          "orderInEntry": 0,
+          "width": 0,
+          "type": "pdf",
+          "identifier": "0E4BD5DF4D8A4835B3BA3A53F31CE1AD",
+          "creationDevice": "MacBookPro15,1",
+          "height": 0,
+          "duration": 0,
+          "md5": "2f1c651de5d167db3d62dc260925fa9c",
+          "pdfName": "Test"
+        }
+      ],
+      "creationOSName": "macOS",
+      "editingTime": 0,
+      "uuid": "DFE9217ECAD140A49006530651446773",
+      "creationOSVersion": "13.6",
+      "text": "Fourth Test Journal Entry\nThis entry contains a PDF file\\.\n\n![](dayone-moment:/pdfAttachment/0E4BD5DF4D8A4835B3BA3A53F31CE1AD)\n\nContent continues here after the PDF\\.",
+      "isAllDay": false,
+      "modifiedDate": "2023-11-04T18:45:44Z",
+      "creationDate": "2023-11-04T18:45:27Z",
+      "richText": "{\"meta\":{\"version\":1,\"small-lines-removed\":true,\"created\":{\"platform\":\"com.bloombuilt.dayone-mac\",\"version\":1515}},\"contents\":[{\"attributes\":{\"line\":{\"header\":1,\"identifier\":\"C399B42A-CA82-48B0-9AEF-724276B9D557\"}},\"text\":\"Test Journal Entry\\n\"},{\"text\":\"This entry contains a PDF file.\"},{\"attributes\":{},\"text\":\"\\n\"},{\"embeddedObjects\":[{\"type\":\"pdfAttachment\",\"identifier\":\"0E4BD5DF4D8A4835B3BA3A53F31CE1AD\"}]}]}",
+      "isPinned": false
     }
   ]
 }
