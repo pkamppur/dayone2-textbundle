@@ -1,5 +1,5 @@
 import assert from "assert";
-import parseDayOne2JSONExportEntry from "../../lib/parseDayOne2JSONExportEntry.js";
+import parseDayOne2JSONExportEntry from "../../../src/dayone/parseJournalEntry.js";
 
 describe("parseDayOne2JSONExportEntry", () => {
   describe("normal", () => {

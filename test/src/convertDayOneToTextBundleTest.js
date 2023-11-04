@@ -1,5 +1,5 @@
 import assert from "assert";
-import convertDayOne2JSONExportIntoTextBundleZips from "../../lib/convertDayOne2JSONExportIntoTextBundleZips.js";
+import convertDayOneToTextBundle from "../../src/convertDayOneToTextBundle.js";
 import { rimraf } from "rimraf";
 import fs from "fs";
 import JSZip from "jszip";
@@ -7,14 +7,14 @@ import { URL } from "url";
 
 const __dirname = new URL(".", import.meta.url).pathname;
 
-describe("convertDayOne2JSONExportIntoTextBundleZips", () => {
+describe("convertDayOneToTextBundle", () => {
   describe("normal", () => {
     it("creates files with proper names, timestamps and contents", async () => {
       // convert
-      const targetDir = "./test/tmp/convertDayOne2JSONExportIntoTextBundleZips";
+      const targetDir = "./test/tmp/convertDayOneToTextBundle";
       rimraf.sync(targetDir);
       fs.mkdirSync(targetDir);
-      const logs = await convertDayOne2JSONExportIntoTextBundleZips(
+      const logs = await convertDayOneToTextBundle(
         __dirname + "/../assets/DayOne2JSONExport/demo.json",
         targetDir
       );

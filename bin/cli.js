@@ -2,7 +2,7 @@
 
 /* eslint-disable */
 
-import convertDayOne2JSONExportIntoTextBundleZips from "../lib/convertDayOne2JSONExportIntoTextBundleZips.js";
+import convertDayOneToTextBundle from "../src/convertDayOneToTextBundle.js";
 
 const inputPath = process.argv[2];
 const outputPath = process.argv[3];
@@ -11,7 +11,7 @@ if (!inputPath || !outputPath) {
   console.log(`${process.argv0} <dayone2-export-json-file> <target-dir>`);
   process.exit(1);
 } else {
-  await convertDayOne2JSONExportIntoTextBundleZips(inputPath, outputPath, {
+  await convertDayOneToTextBundle(inputPath, outputPath, {
     format: "textbundle",
   })
     .then((logs) => {

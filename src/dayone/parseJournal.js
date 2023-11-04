@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import parseDayOne2JSONExportEntry from "./parseDayOne2JSONExportEntry.js";
+import parseJournalEntry from "./parseJournalEntry.js";
 
 export default async (pathToDayOne2ExportJSON) => {
   const rawJSON = fs.readFileSync(pathToDayOne2ExportJSON, "utf8");
@@ -11,7 +11,7 @@ export default async (pathToDayOne2ExportJSON) => {
   const entriesWithErrors = [];
   data.entries.forEach((rawEntry) => {
     try {
-      const entry = parseDayOne2JSONExportEntry(rawEntry);
+      const entry = parseJournalEntry(rawEntry);
       entry.attachments?.forEach((attachment) => {
         attachment.path = path.join(
           attachmentsPath,

@@ -12,7 +12,7 @@
     "lib/**/*"
   ],
   "scripts": {
-    "test": "npx mocha 'test/lib/**/*.js'",
+    "test": "npx mocha 'test/src/**/*.js'",
     "lint": "npx eslint --fix ."
   },
   "author": "Jens Bissinger",

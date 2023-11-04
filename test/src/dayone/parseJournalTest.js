@@ -1,15 +1,15 @@
 import assert from "assert";
 import path from "path";
-import parseDayOne2JSONExport from "../../lib/parseDayOne2JSONExport.js";
+import parseJournal from "../../../src/dayone/parseJournal.js";
 import { URL } from "url";
 
 const __dirname = new URL(".", import.meta.url).pathname;
 
-describe("parseDayOne2JSONExport", () => {
+describe("parseJournal", () => {
   describe("normal", () => {
     it("returns", async () => {
-      const data = await parseDayOne2JSONExport(
-        __dirname + "/../assets/DayOne2JSONExport/demo.json"
+      const data = await parseJournal(
+        __dirname + "/../../assets/DayOne2JSONExport/demo.json"
       );
       assert.deepEqual(data, {
         entries: [
@@ -27,7 +27,7 @@ describe("parseDayOne2JSONExport", () => {
                   "photos/cf80411fda6ba991b6110b2365fb8286.jpeg",
                 path:
                   path.normalize(
-                    __dirname + "/../assets/DayOne2JSONExport/photos/"
+                    __dirname + "/../../assets/DayOne2JSONExport/photos/"
                   ) + "cf80411fda6ba991b6110b2365fb8286.jpeg",
               },
             ],

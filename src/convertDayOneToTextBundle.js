@@ -1,7 +1,7 @@
 import fs from "fs";
-import parseDayOne2JSONExport from "./parseDayOne2JSONExport.js";
-import buildTextBundleZip from "./buildTextBundleZip.js";
-import writeTextBundleFiles from "./writeTextBundleFiles.js";
+import parseDayOne2JSONExport from "./dayone/parseJournal.js";
+import buildTextBundleZip from "./textbundle/buildTextPackZip.js";
+import writeTextBundleFiles from "./textbundle/writeTextBundle.js";
 import filenamify from "filenamify";
 import utimes from "utimes";
 
