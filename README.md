@@ -15,13 +15,13 @@ Sadly DayOne2 does not support TextBundle out of the box, this project solves th
 
 ## Supported Environments
 
-Node.js 10+ and macOS (ok, because DayOne2 is macOS only ;-)).
+Node.js 20+ and macOS (ok, because DayOne2 is macOS only ;-)).
 
 Note: Linux or Windows might work, but things like creation dates might be broken.
 
 ## Installation
 
-This project uses and was tested with [Node.js](https://nodejs.org/) v10.
+This project uses and was tested with [Node.js](https://nodejs.org/) v20.
 
     npm install dayone2-textbundle
 
