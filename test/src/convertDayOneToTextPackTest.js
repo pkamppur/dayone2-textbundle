@@ -7,7 +7,7 @@ import { URL } from "url";
 
 const __dirname = new URL(".", import.meta.url).pathname;
 
-describe("convertDayOneToTextBundle", () => {
+describe("convertDayOneToTextPackTest", () => {
   describe("normal", () => {
     it("creates files with proper names, timestamps and contents", async () => {
       // convert
