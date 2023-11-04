@@ -35,54 +35,62 @@ export default async (inputPath, outputPath, options) => {
   );
   for (const entry of dayOne2JSONExport.entries) {
     if (options?.format === "textbundle") {
-      const outputDirPath = `${outputPath}/${filenamify(entry.title)}.${
-        entry.uuid
-      }.textbundle`;
-      try {
-        fs.mkdirSync(outputDirPath);
-        await writeTextBundleFiles(outputDirPath, entry);
-
-        logs.converter.numberOfTextBundlesWritten += 1;
-        try {
-          const createdAt = new Date(entry.createdAt).getTime() || undefined;
-          const modifiedAt = new Date(entry.modifiedAt).getTime() || undefined;
-          const accessedAt = undefined;
-          await setUtimes(outputDirPath, createdAt, modifiedAt, accessedAt);
-        } catch (error) {
-          logs.converter.filesErrors.push(
-            new Error(`Failed to set utimes on ${outputDirPath} ${error}`)
-          );
-        }
-      } catch (error) {
-        logs.converter.filesErrors.push(
-          new Error(`Failed to write TextBundle ${outputDirPath} ${error}`)
-        );
-      }
+      await writeTextBundle(outputPath, entry, logs);
     } else {
-      const outputFilePath = `${outputPath}/${filenamify(entry.title)}.${
-        entry.uuid
-      }.textpack`;
-      try {
-        const zip = buildTextBundleZip(entry);
-        const data = await zip.generateAsync({ type: "nodebuffer" });
-        fs.writeFileSync(outputFilePath, data);
-        logs.converter.numberOfTextBundlesWritten += 1;
-        try {
-          const createdAt = new Date(entry.createdAt).getTime() || undefined;
-          const modifiedAt = new Date(entry.modifiedAt).getTime() || undefined;
-          const accessedAt = undefined;
-          await setUtimes(outputFilePath, createdAt, modifiedAt, accessedAt);
-        } catch (error) {
-          logs.converter.filesErrors.push(
-            new Error(`Failed to set utimes on ${outputFilePath} ${error}`)
-          );
-        }
-      } catch (error) {
-        logs.converter.filesErrors.push(
-          new Error(`Failed to write TextBundle ${outputFilePath} ${error}`)
-        );
-      }
+      await writeTextPackZip(outputPath, entry, logs);
     }
   }
   return logs;
+};
+
+const writeTextBundle = async (outputPath, entry, logs) => {
+  const outputDirPath = `${outputPath}/${filenamify(entry.title)}.${
+    entry.uuid
+  }.textbundle`;
+  try {
+    fs.mkdirSync(outputDirPath);
+    await writeTextBundleFiles(outputDirPath, entry);
+
+    logs.converter.numberOfTextBundlesWritten += 1;
+    try {
+      const createdAt = new Date(entry.createdAt).getTime() || undefined;
+      const modifiedAt = new Date(entry.modifiedAt).getTime() || undefined;
+      const accessedAt = undefined;
+      await setUtimes(outputDirPath, createdAt, modifiedAt, accessedAt);
+    } catch (error) {
+      logs.converter.filesErrors.push(
+        new Error(`Failed to set utimes on ${outputDirPath} ${error}`)
+      );
+    }
+  } catch (error) {
+    logs.converter.filesErrors.push(
+      new Error(`Failed to write TextBundle ${outputDirPath} ${error}`)
+    );
+  }
+};
+
+const writeTextPackZip = async (outputPath, entry, logs) => {
+  const outputFilePath = `${outputPath}/${filenamify(entry.title)}.${
+    entry.uuid
+  }.textpack`;
+  try {
+    const zip = buildTextBundleZip(entry);
+    const data = await zip.generateAsync({ type: "nodebuffer" });
+    fs.writeFileSync(outputFilePath, data);
+    logs.converter.numberOfTextBundlesWritten += 1;
+    try {
+      const createdAt = new Date(entry.createdAt).getTime() || undefined;
+      const modifiedAt = new Date(entry.modifiedAt).getTime() || undefined;
+      const accessedAt = undefined;
+      await setUtimes(outputFilePath, createdAt, modifiedAt, accessedAt);
+    } catch (error) {
+      logs.converter.filesErrors.push(
+        new Error(`Failed to set utimes on ${outputFilePath} ${error}`)
+      );
+    }
+  } catch (error) {
+    logs.converter.filesErrors.push(
+      new Error(`Failed to write TextBundle ${outputFilePath} ${error}`)
+    );
+  }
 };
