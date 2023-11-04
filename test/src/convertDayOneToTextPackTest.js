@@ -12,7 +12,6 @@ describe("convertDayOneToTextBundle", () => {
     it("creates files with proper names, timestamps and contents", async () => {
       // convert
       const targetDir = "./test/tmp/convertDayOneToTextBundle";
-      const referenceDir = __dirname + "/../assets/TextPacks";
       rimraf.sync(targetDir);
       fs.mkdirSync(targetDir);
       const logs = await convertDayOneToTextBundle(
