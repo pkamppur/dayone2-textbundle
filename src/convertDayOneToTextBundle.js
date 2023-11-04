@@ -87,7 +87,7 @@ const writeTextPackZip = async (outputPath, entry, logs) => {
     return outputFilePath;
   } catch (error) {
     logs.converter.filesErrors.push(
-      new Error(`Failed to write TextBundle ${outputFilePath} ${error}`)
+      new Error(`Failed to write TextPack zip ${outputFilePath} ${error}`)
     );
     return null;
   }
