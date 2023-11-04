@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-/* eslint-disable */
-
 import convertDayOneToTextBundle from "../src/convertDayOneToTextBundle.js";
 
 const inputPath = process.argv[2];
