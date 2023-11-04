@@ -25,6 +25,13 @@ This project uses and was tested with [Node.js](https://nodejs.org/) v10.
 
     npm install dayone2-textbundle
 
+## Running locally without installing
+
+If you've cloned repo locally, you can run converter using
+
+    npm i
+    npx dayone2-textbundle <dayone2-export-json-file> <target-dir>
+
 ## How To
 
 ### 1. Export a DayOne2 journal in JSON format
