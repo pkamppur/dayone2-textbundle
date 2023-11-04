@@ -11,7 +11,7 @@ describe("convertDayOneToTextPackTest", () => {
   describe("normal", () => {
     it("creates files with proper names, timestamps and contents", async () => {
       // convert
-      const targetDir = "./test/tmp/convertDayOneToTextBundle";
+      const targetDir = "./test/tmp/convertDayOneToTextPackTest";
       rimraf.sync(targetDir);
       fs.mkdirSync(targetDir);
       const logs = await convertDayOneToTextBundle(
