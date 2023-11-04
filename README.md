@@ -13,6 +13,18 @@ Sadly DayOne2 does not support TextBundle out of the box, this project solves th
 - Reads [DayOne2](https://dayoneapp.com/) journal in JSON format
 - Converts into [TextBundle](http://textbundle.org/) `.textpack` ZIP files
 
+## How To
+
+1. Export JSON zip from Day One: [See here](https://dayoneapp.com/guides/tips-and-tutorials/exporting-entries/)
+2. Extract zip contents
+3. Create output directory
+4. Run CLI tool `dayone2-textbundle` conversion for each Journal.json
+
+   dayone2-textbundle <dayone2-export-json-file> <target-dir>
+
+5. Import `.textbundle` files to your favorite [app](http://textbundle.org/)
+6. Profit!
+
 ## Supported Environments
 
 Node.js 20+ and macOS (ok, because DayOne2 is macOS only ;-)).
@@ -31,22 +43,6 @@ If you've cloned repo locally, you can run converter using
 
     npm i
     npx dayone2-textbundle <dayone2-export-json-file> <target-dir>
-
-## How To
-
-### 1. Export a DayOne2 journal in JSON format
-
-[See here](https://help.dayoneapp.com/tips-and-tutorials/exporting-entries)
-
-### 2. Convert JSON to TextBundle
-
-Run the CLI to transform the DayOne2 JSON into a bunch of TextBundle ZIP files (actually called `.textpack`) like so:
-
-    dayone2-textbundle <dayone2-export-json-file> <target-dir>
-
-### 3. Import
-
-Open the TextBundle files (single or all-at-once) directly in any app listed [here](http://textbundle.org/)
 
 ## Contribute
 
