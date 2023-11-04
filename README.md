@@ -21,7 +21,9 @@ Sadly DayOne2 does not support TextBundle out of the box, this project solves th
 3. Create output directory
 4. Run CLI tool `dayone2-textbundle` conversion for each Journal.json
 
-   dayone2-textbundle <dayone2-export-json-file> <target-dir>
+   ```
+      dayone2-textbundle <dayone2-export-json-file> <target-dir>
+   ```
 
 5. Import `.textbundle` files to your favorite [app](http://textbundle.org/)
 6. Profit!
