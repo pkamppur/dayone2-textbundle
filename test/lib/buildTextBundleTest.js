@@ -1,7 +1,10 @@
-const assert = require("assert");
-const renderTextBundle = import("../../lib/buildTextBundleZip");
-const path = require("path");
-const fs = require("fs");
+import assert from "assert";
+import fs from "fs";
+import path from "path";
+import renderTextBundle from "../../lib/buildTextBundleZip.js";
+import { URL } from "url";
+
+const __dirname = new URL(".", import.meta.url).pathname;
 
 describe("renderTextBundle", () => {
   describe("normal", () => {

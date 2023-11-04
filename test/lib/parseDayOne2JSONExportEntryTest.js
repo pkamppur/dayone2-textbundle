@@ -1,5 +1,5 @@
-const assert = require("assert");
-const parseDayOne2JSONExportEntry = require("../../lib/parseDayOne2JSONExportEntry");
+import assert from "assert";
+import parseDayOne2JSONExportEntry from "../../lib/parseDayOne2JSONExportEntry.js";
 
 describe("parseDayOne2JSONExportEntry", () => {
   describe("normal", () => {

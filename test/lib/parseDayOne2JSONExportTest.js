@@ -1,11 +1,14 @@
-const assert = require("assert");
-const path = require("path");
-const parseDayOne2JSONExport = require("../../lib/parseDayOne2JSONExport");
+import assert from "assert";
+import path from "path";
+import parseDayOne2JSONExport from "../../lib/parseDayOne2JSONExport.js";
+import { URL } from "url";
+
+const __dirname = new URL(".", import.meta.url).pathname;
 
 describe("parseDayOne2JSONExport", () => {
   describe("normal", () => {
-    it("returns", () => {
-      const data = parseDayOne2JSONExport(
+    it("returns", async () => {
+      const data = await parseDayOne2JSONExport(
         __dirname + "/../assets/DayOne2JSONExport/demo.json"
       );
       assert.deepEqual(data, {

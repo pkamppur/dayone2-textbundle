@@ -1,8 +1,11 @@
-const assert = require("assert");
-const convertDayOne2JSONExportIntoTextBundleZips = require("../../lib/convertDayOne2JSONExportIntoTextBundleZips");
-const rimraf = require("rimraf");
-const fs = require("fs");
-const JSZip = require("jszip");
+import assert from "assert";
+import convertDayOne2JSONExportIntoTextBundleZips from "../../lib/convertDayOne2JSONExportIntoTextBundleZips.js";
+import { rimraf } from "rimraf";
+import fs from "fs";
+import JSZip from "jszip";
+import { URL } from "url";
+
+const __dirname = new URL(".", import.meta.url).pathname;
 
 describe("convertDayOne2JSONExportIntoTextBundleZips", () => {
   describe("normal", () => {
