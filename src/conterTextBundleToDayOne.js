@@ -22,7 +22,7 @@ export default async (inputPaths, outputPath, journalName) => {
     entry.text = fs.readFileSync(inputPath + "/text.md", "utf8");
 
     const pdfRegex =
-      /\[(.*?)\.pdf\]\(assets\/(.+?)\.pdf\)(<!-- {"embed":"true", "preview":"true"} -->)?/g;
+      /!\[(.*?)\.pdf\]\(assets\/(.+?)\.pdf\)(<!-- {"embed":"true", "preview":"true"} -->)?/g;
     const pdfMatches = [...entry.text.matchAll(pdfRegex)];
     pdfMatches.forEach((match) => {
       const wholeMatch = match[0];

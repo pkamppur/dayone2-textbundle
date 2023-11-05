@@ -13,7 +13,7 @@ export default (rawEntry) => {
     // replace dayone moments (pdf) with embedded attachments
     entry.text = entry.text.replace(
       /!\[(.*?)\]\(dayone-moment:\/pdfAttachment\/(.+?)\)/g,
-      '[$2.pdf](assets/$2.pdf)<!-- {"embed":"true", "preview":"true"} -->'
+      '![$2.pdf](assets/$2.pdf)<!-- {"embed":"true", "preview":"true"} -->'
     );
 
     // replace dayone moments (photos) with embedded attachments

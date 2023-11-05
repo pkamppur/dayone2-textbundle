@@ -254,7 +254,7 @@ describe("parseDayOne2JSONExportEntry", () => {
             uuid: "D229A6574C0340E68AD3BB65F950A77C",
           },
         ],
-        text: 'TYT-tulosraportti 2023\n\n[D229A6574C0340E68AD3BB65F950A77C.pdf](assets/4b5997d3e4d8ed8f581395ae365d2f71.pdf)<!-- {"embed":"true", "preview":"true"} -->',
+        text: 'TYT-tulosraportti 2023\n\n![D229A6574C0340E68AD3BB65F950A77C.pdf](assets/4b5997d3e4d8ed8f581395ae365d2f71.pdf)<!-- {"embed":"true", "preview":"true"} -->',
         title: "TYT\\-tulosraportti 2023",
         uuid: "AEF9A0A34B8A443AA9A83F3713C94244",
       });
@@ -280,7 +280,7 @@ describe("parseDayOne2JSONExportEntry", () => {
               uuid: "D229A6574C0340E68AD3BB65F950A77C",
             },
           ],
-          text: 'TYT-tulosraportti 2023\n\n[D229A6574C0340E68AD3BB65F950A77C.pdf](assets/4b5997d3e4d8ed8f581395ae365d2f71.pdf)<!-- {"embed":"true", "preview":"true"} -->\n\n![](attachment:37A9D40021444291B91102841325B5CF)',
+          text: 'TYT-tulosraportti 2023\n\n![D229A6574C0340E68AD3BB65F950A77C.pdf](assets/4b5997d3e4d8ed8f581395ae365d2f71.pdf)<!-- {"embed":"true", "preview":"true"} -->\n\n![](attachment:37A9D40021444291B91102841325B5CF)',
           title: "TYT\\-tulosraportti 2023",
           uuid: "AEF9A0A34B8A443AA9A83F3713C94244",
         }
