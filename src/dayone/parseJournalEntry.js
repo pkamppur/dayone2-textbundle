@@ -11,6 +11,7 @@ export default (rawEntry) => {
     );
 
     // replace dayone moments (pdf) with embedded attachments
+    // NOTE: PDF attachment asset path will be fixed later during parsing.
     entry.text = entry.text.replace(
       /!\[(.*?)\]\(dayone-moment:\/pdfAttachment\/(.+?)\)/g,
       '![$2.pdf](assets/$2.pdf)<!-- {"embed":"true", "preview":"true"} -->'
