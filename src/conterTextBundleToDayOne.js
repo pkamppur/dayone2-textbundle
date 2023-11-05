@@ -55,9 +55,6 @@ export default async (inputPaths, outputPath, journalName) => {
       const filename = match[2];
       const filetype = filename.split(".")[1];
       const md5 = filename.split(".")[0];
-      console.log("filename", filename);
-      console.log("filetype", filetype);
-      console.log("md5", md5);
 
       photos.push({ name: filename, source: inputPath });
 
