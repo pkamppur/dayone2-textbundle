@@ -92,9 +92,11 @@ export default (rawEntry) => {
       };
       entry.attachments.push(pdf);
 
+      const regexPattern = `\\[${rawEntryPdf.identifier}\\.pdf\\]\\(assets\\/${rawEntryPdf.identifier}\\.pdf\\)`;
+      const regex = new RegExp(regexPattern, "g");
       entry.text = entry.text.replace(
-        /\[(.*?)\.pdf\]\(assets\/(.+?)\.pdf\)/g,
-        `[$1.pdf](assets/${rawEntryPdf.md5}.pdf)`
+        regex,
+        `[${rawEntryPdf.identifier}.pdf](assets/${rawEntryPdf.md5}.pdf)`
       );
     });
   }

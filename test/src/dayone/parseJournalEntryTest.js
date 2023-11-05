@@ -242,8 +242,8 @@ describe("parseDayOne2JSONExportEntry", () => {
     });
   });
 
-  describe("with pdf", () => {
-    it("parses correctly", () => {
+  describe("with pdfs", () => {
+    it("parses correctly one pdf", () => {
       assert.deepEqual(parseDayOne2JSONExportEntry(examplEntries.withPdf), {
         createdAt: "2023-11-01T07:31:20Z",
         modifiedAt: "2023-11-01T07:32:30Z",
@@ -258,6 +258,35 @@ describe("parseDayOne2JSONExportEntry", () => {
         title: "TYT\\-tulosraportti 2023",
         uuid: "AEF9A0A34B8A443AA9A83F3713C94244",
       });
+    });
+    it("parses correctly multiple pdfs", () => {
+      assert.deepEqual(
+        parseDayOne2JSONExportEntry(examplEntries.withMultiplePdfs),
+        {
+          text:
+            "# AWS Certified Solutions Architect Associate\n" +
+            "\n" +
+            '![4BD3ADBA951B417787381B24F1526DAE.pdf](assets/a75efbf80200a863366ceaa41fb69f5b.pdf)<!-- {"embed":"true", "preview":"true"} -->\n' +
+            "\n" +
+            '![E4CA66928A154841A7E813C96B4AE906.pdf](assets/e0e716e75388cc16c260942469d19309.pdf)<!-- {"embed":"true", "preview":"true"} -->',
+          title: "AWS Certified Solutions Architect Associate",
+          uuid: "63BBF86315E548669D62045B220AF823",
+          createdAt: "2019-12-17T12:56:36Z",
+          modifiedAt: "2022-01-17T18:56:52Z",
+          attachments: [
+            {
+              uuid: "E4CA66928A154841A7E813C96B4AE906",
+              relativeSourcePath: "pdfs/e0e716e75388cc16c260942469d19309.pdf",
+              filename: "e0e716e75388cc16c260942469d19309.pdf",
+            },
+            {
+              uuid: "4BD3ADBA951B417787381B24F1526DAE",
+              relativeSourcePath: "pdfs/a75efbf80200a863366ceaa41fb69f5b.pdf",
+              filename: "a75efbf80200a863366ceaa41fb69f5b.pdf",
+            },
+          ],
+        }
+      );
     });
   });
 
@@ -459,5 +488,52 @@ const examplEntries = {
     starred: false,
     creationDeviceType: "iPhone",
     creationOSVersion: "16.7.1",
+  },
+  withMultiplePdfs: {
+    editingTime: 25.589485049247742,
+    starred: false,
+    isPinned: false,
+    creationDeviceModel: "iMac19,1",
+    timeZone: "Europe/Helsinki",
+    isAllDay: false,
+    creationOSVersion: "11.6",
+    duration: 0,
+    creationDeviceType: "iMac",
+    richText:
+      '{"meta":{"version":1,"small-lines-removed":true,"created":{"platform":"com.bloombuilt.dayone-mac","version":1352}},"contents":[{"attributes":{"line":{"header":1,"identifier":"48A04411-E490-4947-93CD-0F04266BC465"}},"text":"AWS Certified Solutions Architect Associate"},{"embeddedObjects":[{"type":"pdfAttachment","identifier":"4BD3ADBA951B417787381B24F1526DAE"}]},{"embeddedObjects":[{"type":"pdfAttachment","identifier":"E4CA66928A154841A7E813C96B4AE906"}]}]}',
+    modifiedDate: "2022-01-17T18:56:52Z",
+    creationDevice: "Petteri’s iMac",
+    creationDate: "2019-12-17T12:56:36Z",
+    pdfAttachments: [
+      {
+        favorite: false,
+        fileSize: 60805,
+        orderInEntry: 1,
+        width: 0,
+        type: "pdf",
+        identifier: "E4CA66928A154841A7E813C96B4AE906",
+        height: 0,
+        creationDevice: "Petteri’s iMac",
+        duration: 0,
+        md5: "e0e716e75388cc16c260942469d19309",
+        pdfName: "AWS Certified Solutions Architect - Associate",
+      },
+      {
+        favorite: false,
+        fileSize: 175371,
+        orderInEntry: 0,
+        width: 0,
+        type: "pdf",
+        identifier: "4BD3ADBA951B417787381B24F1526DAE",
+        height: 0,
+        creationDevice: "Petteri’s iMac",
+        duration: 0,
+        md5: "a75efbf80200a863366ceaa41fb69f5b",
+        pdfName: "AWS Certified Solutions Architect - Associate certificate",
+      },
+    ],
+    text: "# AWS Certified Solutions Architect Associate\n\n![](dayone-moment:/pdfAttachment/4BD3ADBA951B417787381B24F1526DAE)\n\n![](dayone-moment:/pdfAttachment/E4CA66928A154841A7E813C96B4AE906)",
+    uuid: "63BBF86315E548669D62045B220AF823",
+    creationOSName: "macOS",
   },
 };
