@@ -10,7 +10,6 @@ describe("parseDayOne2JSONExportEntry", () => {
         modifiedAt: "2018-12-06T21:05:56Z",
         text: "# Foo\nBar\n",
         title: "Foo",
-        tags: ["foo", "bar"],
       });
     });
   });
@@ -229,6 +228,19 @@ describe("parseDayOne2JSONExportEntry", () => {
     });
   });
 
+  describe("DayOne tags", () => {
+    it("parses and appends tags missing from text", () => {
+      assert.deepEqual(parseDayOne2JSONExportEntry(examplEntries.withTags), {
+        uuid: "65A6F350C04E496DB775971441E41FBA",
+        createdAt: "2018-12-06T21:04:39Z",
+        modifiedAt: "2018-12-06T21:05:56Z",
+        text: "# Foo\nBar #tagInText\n\n#tagNotInText\n#tagNotInText2",
+        title: "Foo",
+        tags: ["tagInText", "tagNotInText", "tagNotInText2"],
+      });
+    });
+  });
+
   describe("externalImages", () => {
     it("returns", () => {
       assert.deepEqual(
@@ -367,8 +379,23 @@ const examplEntries = {
       placeName: "Seestrasse",
       latitude: 47.300171,
     },
-    tags: ["foo", "bar"],
     text: "# Foo\nBar\n",
+    modifiedDate: "2018-12-06T21:05:56Z",
+    uuid: "65A6F350C04E496DB775971441E41FBA",
+    duration: 0,
+  },
+  withTags: {
+    creationOSName: "iOS",
+    richText:
+      '{"contents":[{"text":"Foo\\n","attributes":{"line":{"header":1}}},{"text":"\\n"},{"text":"Bar\\n\\n"}],"meta":{"version":1}}',
+    creationDeviceModel: "iPhone11,8",
+    starred: false,
+    creationDate: "2018-12-06T21:04:39Z",
+    creationOSVersion: "12.1",
+    creationDeviceType: "iPhone",
+    timeZone: "Europe/Zurich",
+    tags: ["tagInText", "tagNotInText", "tagNotInText2"],
+    text: "# Foo\nBar #tagInText\n",
     modifiedDate: "2018-12-06T21:05:56Z",
     uuid: "65A6F350C04E496DB775971441E41FBA",
     duration: 0,

@@ -101,5 +101,11 @@ export default (rawEntry) => {
       );
     });
   }
+  // Add tags not present in text to end of text
+  entry.tags?.forEach((tag) => {
+    if (!entry.text.includes(`#${tag}`)) {
+      entry.text = entry.text + `\n#${tag}`;
+    }
+  });
   return entry;
 };
